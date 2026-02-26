@@ -1,0 +1,22 @@
+.env
+.env.local
+.env*.local
+*.pyc
+__pycache__/
+.venv/
+
+# Keys and credentials
+*.pem
+*.key
+credentials.json
+oauth_creds.json
+secrets.json
+*.secret
+id_rsa
+id_ed25519
+
+# Generated output files (PLACA_YYYYMMDD_HHMMSS.ext)
+*.json
+!.env.example
+*_[0-9]*_[0-9]*.pdf
+*_[0-9]*_[0-9]*.md
