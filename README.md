@@ -1,10 +1,12 @@
 # consulta-veicular
 
-Script Python para consulta de histórico veicular completo usando **apenas a placa** como input (sem RENAVAM, sem CPF).
+> **Consulta de histórico veicular por placa em Python** — roubo/furto, gravame, leilão, RENAINF, proprietário e muito mais. Sem RENAVAM, sem CPF.
 
-Usa a API paga [consultarplaca.com.br](https://consultarplaca.com.br/) para gerar um relatório detalhado equivalente aos serviços CheckAuto/DEKRA (~R$60), por cerca de **R$0.81 por consulta padrão**.
+Script Python para **consulta veicular completa** usando apenas a placa como input. Gera relatório detalhado equivalente ao CheckAuto/DEKRA (~R$60) por cerca de **R$0.81 por consulta padrão**, exportável em terminal colorido, JSON, Markdown ou PDF.
 
-O módulo `sinesp.py` oferece uma camada gratuita via Sinesp Cidadão (dados básicos + roubo/furto), mas não está integrado ao `lookup.py` — veja a seção [Sinesp Cidadão](#sinesp-cidadão--camada-gratuita) abaixo.
+Cobre os principais riscos na **compra de veículo usado**: roubo/furto, alienação fiduciária (gravame), sinistro com perda total, histórico de leilão (com classificação de danos A–D), infrações RENAINF e proprietário atual.
+
+Inclui também `sinesp.py` — módulo standalone gratuito via **Sinesp Cidadão** (situação de roubo/furto + dados básicos, sem custo, sem API key).
 
 ---
 
@@ -29,7 +31,7 @@ O módulo `sinesp.py` oferece uma camada gratuita via Sinesp Cidadão (dados bá
 ## Instalação
 
 ```bash
-git clone https://github.com/seuusuario/consulta-veicular.git
+git clone https://github.com/maxh33/consulta-veicular.git
 cd consulta-veicular
 
 python -m venv .venv
@@ -279,3 +281,7 @@ CONSULTARPLACA_API_KEY=sua_chave_aqui
 - **Placa de teste**: `AAA0000` (sem consumo de créditos, chassi `00AAA00A00A000000`)
 - FIPE não está incluso — disponível gratuitamente em qualquer site de tabela FIPE
 - O portal SENATRAN exige CPF/CNPJ do proprietário — inacessível para consulta de terceiros
+
+---
+
+<!-- keywords: consulta veicular python, consultar placa python, histórico veicular API, verificar roubo furto placa, consulta gravame python, leilão veículo python, RENAINF python, Sinesp Cidadão python, comprar carro usado checklist, vehicle history brazil python, consulta DETRAN python, checar placa carro, laudo veicular python, alienação fiduciária placa, sinistro perda total veículo, relatório veicular PDF python -->
