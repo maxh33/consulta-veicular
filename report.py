@@ -301,9 +301,9 @@ def _secao_renainf(r: dict) -> None:
     t = Table(box=box.SIMPLE, show_header=True, padding=(0, 1))
     t.add_column("Infração", max_width=40)
     t.add_column("Valor", justify="right")
-    t.add_column("Órgão")
+    t.add_column("Órgão", max_width=22)
     t.add_column("Data")
-    t.add_column("Local")
+    t.add_column("Local", max_width=32)
 
     for i in infracoes:
         t.add_row(
@@ -551,7 +551,7 @@ def salvar_markdown(placa: str, resultados: dict, caminho: str) -> None:
 def salvar_pdf(placa: str, resultados: dict, caminho: str) -> None:
     """Salva relatório em PDF usando fpdf2."""
     try:
-        from fpdf import FPDF
+        from fpdf import FPDF, FontFace
     except ImportError:
         console.print("[red]fpdf2 não instalado. Execute: pip install fpdf2[/red]")
         return
@@ -796,12 +796,26 @@ def salvar_pdf(placa: str, resultados: dict, caminho: str) -> None:
                 total = sum(_to_float(i.get("valor", "")) for i in infracoes_rn
                             if i.get("valor") not in (None, "", "0"))
                 kv("Resumo", f"{len(infracoes_rn)} infracao(oes) - Total: {_fmt_moeda(total)}", alert=True)
-                ws = [70, 22, 28, 34, 26]
-                th(["Infracao", "Valor", "Orgao", "Data/Hora", "Local"], ws)
-                for i in infracoes_rn:
-                    tr([i.get("infracao", "-"), _fmt_moeda(i.get("valor", "")),
-                        i.get("orgao", "-"), i.get("data_infracao", "-"),
-                        i.get("local", i.get("municipio", "-"))], ws, alert=True)
+                pdf.set_fill_color(255, 255, 255)   # reset before table so _initial_style has no stale fill
+                pdf.set_font("Helvetica", "", 8)
+                heading_style = FontFace(fill_color=(210, 220, 240), emphasis="BOLD")
+                alert_style = FontFace(color=(180, 0, 0), fill_color=(255, 255, 255))
+                with pdf.table(
+                    col_widths=(70, 22, 28, 34, 26),
+                    line_height=5,
+                    headings_style=heading_style,
+                    first_row_as_headings=True,
+                ) as table:
+                    row = table.row()
+                    for col in ["Infracao", "Valor", "Orgao", "Data/Hora", "Local"]:
+                        row.cell(_s(col))
+                    for i in infracoes_rn:
+                        row = table.row(style=alert_style)
+                        row.cell(_s(i.get("infracao", "-")))
+                        row.cell(_s(_fmt_moeda(i.get("valor", ""))))
+                        row.cell(_s(i.get("orgao", "-")))
+                        row.cell(_s(i.get("data_infracao", "-")))
+                        row.cell(_s(i.get("local", i.get("municipio", "-"))))
 
     pdf.output(caminho)
     console.print(f"[green]PDF salvo em:[/green] {caminho}")
