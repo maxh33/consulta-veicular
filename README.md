@@ -2,7 +2,7 @@
 
 > **Consulta de histórico veicular por placa em Python** — roubo/furto, gravame, leilão, RENAINF, proprietário e muito mais. Sem RENAVAM, sem CPF.
 
-Script Python para **consulta veicular completa** usando apenas a placa como input. Gera relatório detalhado equivalente ao CheckAuto/DEKRA (~R$60) por cerca de **R$0.81 por consulta padrão**, exportável em terminal colorido, JSON, Markdown ou PDF.
+Script Python para **consulta veicular completa** usando apenas a placa como input. Gera relatório detalhado equivalente ao CheckAuto/DEKRA (~R$60) por cerca de **R$16.31 por consulta padrão**, exportável em terminal colorido, JSON, Markdown ou PDF.
 
 Cobre os principais riscos na **compra de veículo usado**: roubo/furto, alienação fiduciária (gravame), sinistro com perda total, histórico de leilão (com classificação de danos A–D), infrações RENAINF e proprietário atual.
 
@@ -15,16 +15,24 @@ Inclui também `sinesp.py` — módulo standalone gratuito via **Sinesp Cidadão
 | Dado | Fonte | Flag | Custo |
 |------|-------|------|-------|
 | Dados cadastrais (marca, modelo, ano, cor, chassi, motor) | consultarplaca.com.br | padrão | ~R$0.31 |
-| Roubo/furto, gravame, sinistro com perda total | consultarplaca.com.br | padrão | ~R$0.50 |
+| Histórico roubo/furto | consultarplaca.com.br | padrão | ~R$6.90 |
+| Gravame / alienação fiduciária | consultarplaca.com.br | padrão | ~R$4.60 |
+| Sinistro com perda total | consultarplaca.com.br | padrão | ~R$4.50 |
 | Histórico de leilão detalhado (classificação A-D, IA danos, remarketing) | consultarplaca.com.br | `--leilao` | ~R$16.90 |
 | Proprietário atual | consultarplaca.com.br | `--proprietario` | ~R$6.90 |
-| Infrações RENAINF com valores | consultarplaca.com.br | `--renainf` | incluso |
+| Infrações RENAINF com valores | consultarplaca.com.br | `--renainf` | ~R$4.50 |
 | Situação roubo/furto + dados básicos | Sinesp Cidadão | standalone | **Grátis** |
 
-**Custo típico por consulta:**
-- Consulta padrão (sem leilão): **~R$0.81**
-- Com leilão: **~R$17.71**
-- Comparação: CheckAuto/DEKRA cobram ~R$60 pelo relatório equivalente
+**Custo típico por consulta** (faixa 1–1.000 consultas/mês):
+- Consulta padrão (sem flags): **~R$16.31** (básico + roubo/furto + gravame + sinistro)
+- + Leilão (`--leilao`): **~R$33.21**
+- + Proprietário (`--proprietario`): **~R$23.21**
+- + RENAINF (`--renainf`): **~R$20.81**
+- Consulta completa (`--full`): **~R$44.61**
+- Comparação: CheckAuto/DEKRA cobram ~R$60 pelo relatório equivalente (`--full`)
+
+> Preços sujeitos a alteração. Descontos de até 20% para volumes acima de 1.000 consultas/mês.
+> Consulte [docs.consultarplaca.com.br/preco](https://docs.consultarplaca.com.br/preco).
 
 ---
 
