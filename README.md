@@ -183,7 +183,7 @@ else:
 
 ---
 
-## Exemplo de saída terminal (lookup.py)
+## Exemplos de saída
 
 ```
 ══════════════ RELATÓRIO VEICULAR — BBJ1A73 — 2026-02-26 18:05 ══════════════
@@ -207,7 +207,7 @@ else:
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
-**Alerta de leilão com seguradora:**
+### Terminal — alerta de leilão com seguradora
 ```
 ┌─ LEILÃO ⚠️  REGISTRO ENCONTRADO ───────────────────────────────────────────┐
 │ Registro de Leilão    CONSTA ⚠️                                             │
@@ -215,6 +215,14 @@ else:
 │ Comitente             PORTO SEGURO CIA DE SEGUROS GERAIS ← seguradora       │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
+
+### Relatório PDF
+
+Relatório completo gerado com a placa de teste `AAA0000` (`--full --pdf`):
+
+**[sample_relatorio_AAA0000.pdf](sample_relatorio_AAA0000.pdf)**
+
+Cobre todos os módulos: dados cadastrais, roubo/furto, gravame, sinistro, leilão (com classificação de danos por IA), proprietário atual e infrações RENAINF.
 
 ---
 
@@ -227,6 +235,7 @@ consulta-veicular/
 ├── sinesp.py        # Sinesp Cidadão — módulo standalone gratuito (não integrado ao lookup.py)
 ├── report.py        # Saída: terminal Rich + JSON + Markdown + PDF
 ├── requirements.txt # requests, python-dotenv, rich, fpdf2
+├── sample_relatorio_AAA0000.pdf  # Relatório PDF de exemplo (placa de teste)
 ├── .env.example     # Template de configuração
 └── .gitignore
 ```
