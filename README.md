@@ -1,5 +1,8 @@
 # consulta-veicular
 
+> [github.com/maxh33/consulta-veicular](https://github.com/maxh33/consulta-veicular)
+> &nbsp;|&nbsp; 🇧🇷 Ferramenta CLI para histórico veicular completo no Brasil
+
 > **Consulta de histórico veicular por placa em Python** — roubo/furto, gravame, leilão, RENAINF, proprietário e muito mais. Sem RENAVAM, sem CPF.
 
 Script Python para **consulta veicular completa** usando apenas a placa como input. Gera relatório detalhado equivalente ao CheckAuto/DEKRA (~R$60) por cerca de **R$16.31 por consulta padrão**, exportável em terminal colorido, JSON, Markdown ou PDF.
@@ -291,6 +294,55 @@ CONSULTARPLACA_API_KEY=sua_chave_aqui
 
 ---
 
+## Contributing
+
+Contribuições são bem-vindas. O projeto nasceu para cobrir uma lacuna no mercado
+brasileiro — APIs equivalentes custam 3–4x mais e não têm interface CLI.
+
+### O que você pode contribuir
+
+| Área | Exemplos |
+|------|---------|
+| **Novas fontes de dados** | Integração direta com DETRAN estaduais, Serpro, outros agregadores |
+| **Novos formatos de exportação** | HTML, Excel/CSV, integração com Google Sheets |
+| **Melhorias no sinesp.py** | Retry com backoff, suporte a async, melhor tratamento de erros |
+| **CLI** | Novas flags, suporte a arquivo de configuração, modo batch (múltiplas placas) |
+| **Relatórios** | Novos templates PDF, gráficos de histórico, comparação entre veículos |
+| **Bug reports** | Mudanças na API do consultarplaca.com.br, edge cases de placas antigas/Mercosul |
+| **Documentação** | Exemplos para diferentes formatos de placa, atualização de preços da API |
+
+### Como contribuir
+
+1. Faça um **fork** do repositório
+2. Crie uma **branch** com convenção:
+   - `feat/batch-lookup` — nova funcionalidade
+   - `fix/sinesp-timeout` — correção de bug
+   - `docs/mercosul-plates` — documentação
+3. Mantenha os padrões:
+   - Credenciais sempre via variáveis de ambiente (nunca hardcoded)
+   - Python 3.8+ compatível
+   - Novas dependências externas precisam de justificativa
+4. Abra um **Pull Request** descrevendo o que mudou e por quê
+
+### Reportar bugs
+
+Abra uma [Issue](https://github.com/maxh33/consulta-veicular/issues) incluindo:
+- Placa usada (pode anonimizar)
+- Comando executado
+- Output ou traceback completo
+- Versão do Python e OS
+
+---
+
+## License
+
+MIT License — veja [LICENSE](LICENSE) para o texto completo.
+
+> **Nota:** este projeto consome a API do consultarplaca.com.br, que é um serviço pago
+> de terceiros. A licença MIT cobre apenas o código deste repositório.
+
+---
+
 ## Notas
 
 - **RENAVAM não é necessário** — as APIs fazem o lookup internamente pela placa
@@ -301,4 +353,4 @@ CONSULTARPLACA_API_KEY=sua_chave_aqui
 
 ---
 
-<!-- keywords: consulta veicular python, consultar placa python, histórico veicular API, verificar roubo furto placa, consulta gravame python, leilão veículo python, RENAINF python, Sinesp Cidadão python, comprar carro usado checklist, vehicle history brazil python, consulta DETRAN python, checar placa carro, laudo veicular python, alienação fiduciária placa, sinistro perda total veículo, relatório veicular PDF python -->
+<!-- seo-keywords: consulta veicular python consultar placa python histórico veicular API verificar roubo furto placa consulta gravame python leilão veículo python RENAINF python Sinesp Cidadão python comprar carro usado checklist vehicle history brazil python consulta DETRAN python checar placa carro laudo veicular python alienação fiduciária placa sinistro perda total veículo relatório veicular PDF python vehicle lookup brazil license plate history theft check lien check auction history cli tool used car check brazil detran sinesp placa brasil compra segura carro usado python cli -->
