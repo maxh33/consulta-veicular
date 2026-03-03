@@ -196,6 +196,8 @@ else:
 
 ## Exemplos de saída
 
+![Relatório terminal com Rich — todos os módulos em AAA0000 (placa de teste)](docs/terminal-report.webp)
+
 ```
 ══════════════ RELATÓRIO VEICULAR — BBJ1A73 — 2026-02-26 18:05 ══════════════
 
@@ -232,6 +234,8 @@ else:
 Relatório completo gerado com a placa de teste `AAA0000` (`--full --pdf`):
 
 **[sample_relatorio_AAA0000.pdf](sample_relatorio_AAA0000.pdf)**
+
+![Relatório PDF — placa real QCX4B74 (Toyota Prius 2018)](docs/pdf-report-real.webp)
 
 Cobre todos os módulos: dados cadastrais, roubo/furto, gravame, sinistro, leilão (com classificação de danos por IA), proprietário atual e infrações RENAINF.
 
