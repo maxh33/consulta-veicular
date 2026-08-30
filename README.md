@@ -1,4 +1,6 @@
-# consulta-veicular
+# Consulta-veicular
+
+[![GitHub stars](https://img.shields.io/github/stars/maxh33/consulta-veicular?style=social)](https://github.com/maxh33/consulta-veicular)
 
 > [github.com/maxh33/consulta-veicular](https://github.com/maxh33/consulta-veicular)
 > &nbsp;|&nbsp; 🇧🇷 Ferramenta CLI para histórico veicular completo no Brasil
